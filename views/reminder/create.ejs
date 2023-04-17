@@ -1,0 +1,25 @@
+<div class="container">
+  <form action="/reminder" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="titleInput" placeholder="Title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="subtasks">Subtasks</label>
+      <textarea class="form-control" id="subtasksInput" rows="2" placeholder="Add each subtask as a new line" name="subtasks"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="tags">Tags</label>
+      <textarea class="form-control" id="tagsInput" rows="2" placeholder="Add each tag as a new line" name="tags"></textarea>
+    </div>
+    <div>
+      <label for="datetime">Select a date and time:</label>
+      <input type="datetime-local" id="datetime" name="datetime">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>

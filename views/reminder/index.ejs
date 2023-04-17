@@ -1,0 +1,46 @@
+
+
+<div class="container my-3">
+  <h1 class="'page-header">Add Friends</h1>
+  <form action="/reminders" method="GET">
+    <input class="form-control" type="search" name="inpVal" placeholder="Search username" aria-label="Search" style="display:inline-block; width:250px;">
+    <button type="submit" class="btn btn-primary mb-2">Search</button>
+  <ul>
+  <% for (ele of result) { %>
+    <li><%=ele%><button class="badge badge-pill badge-info mx-2" name="addBtn" value="<%=ele %>" type="submit">Add</button></li>
+  <%}%>
+</ul>
+</form>
+</div>
+
+<div class="container">
+  <h1 class="page-header">Reminders</h1>
+
+<ul class="list-group">
+  <% reminders.forEach(function (reminderItem) { %>
+    <li class="list-group-item">
+      <strong><%= reminderItem.title %>: </strong>
+      <%= reminderItem.description %>
+      <% if(reminderItem.dueDate) { %>
+      || Time Due:
+      <%= reminderItem.dueDate.replace('T',' ')%>
+      <% }%>
+      <% if(reminderItem.tags.length>0) { %>
+      || Tags:
+      <%for (tag of reminderItem.tags){%>
+      <span class="badge badge-info badge-pill">
+      <%= tag%>
+      </span>
+      <% }}%>
+      || Completed:
+      <% if (reminderItem.completed == true) { %>
+        <span class="badge badge-success">True</span>
+      <% } else if (reminderItem.completed == false) { %>
+        <span class="badge badge-danger">False</span>
+      <% } %>
+      <a class="pull-right" href=<%= "/reminder/" + reminderItem.id %>>View</a>
+    </li>
+  <% }) %>
+</ul>
+
+</div>
